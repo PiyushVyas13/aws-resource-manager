@@ -12,6 +12,12 @@ export interface EC2Instance {
   publicIp?: string;
 }
 
+export interface EBSVolume {
+  id: string;
+  type: "gp2" | "gp3" | "io1" | "io2" | "sc1" | "st1" | "standard";
+  size: number;
+}
+
 export interface RDSInstance {
   id: string;
   name: string;
@@ -60,7 +66,7 @@ export interface Project {
     };
     storage: {
       s3: S3Bucket[];
-      ebs: string[];
+      ebs: EBSVolume[];
     };
     network: {
       elasticIp: ElasticIP[];
